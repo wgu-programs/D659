@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: owner/repo/.github/workflows/export-coda-markdown.yml@main
+    uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
     with:
       docID: '_d1s_ZG0bmZ4'
     secrets:

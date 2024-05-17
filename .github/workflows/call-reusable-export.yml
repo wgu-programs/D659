@@ -1,0 +1,14 @@
+name: Call Reusable Export Coda Document to Markdown
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: owner/repo/.github/workflows/reusable-export-coda-markdown.yml@main
+    with:
+      docID: '_d1s_ZG0bmZ4'
+    secrets:
+      CODA_API_KEY: ${{ secrets.CODA_API_KEY }}

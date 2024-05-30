@@ -6,9 +6,19 @@ on:
       - main
 
 jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: List files in scripts directory
+        run: ls -l /home/runner/work/D659/D659/scripts/
+
   call-reusable-workflow:
     uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
     with:
       docID: '_d1s_ZG0bmZ4'
     secrets:
       CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
+

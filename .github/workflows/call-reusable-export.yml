@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: List files in scripts directory
-        run: ls -l /home/runner/work/D659/D659/scripts/
+        run: ls -l
 
   call-reusable-workflow:
     uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main

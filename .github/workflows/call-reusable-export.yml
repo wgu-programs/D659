@@ -7,16 +7,18 @@ on:
       - main
 
 jobs:
-  list-files:
+  call-reusable-workflow:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      - name: List files in repository
+        run: ls -l ${{ github.workspace }}
 
-  call-reusable-workflow:
-    needs: list-files
-    uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
-    with:
-      docID: '_d1s_ZG0bmZ4'
-    secrets:
-      CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
+      - name: Call reusable workflow
+        uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
+        with:
+          docID: '_d1s_ZG0bmZ4'
+        secrets:
+          CODA_API_KEY: ${{ secrets.CODA_API_KEY }}

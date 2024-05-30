@@ -13,6 +13,3 @@ jobs:
       docID: ${{ env.CODA_DOC_ID }}
     secrets:
       CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
-      
-env:
-  CODA_DOC_ID: '_d1s_ZG0bmZ4'

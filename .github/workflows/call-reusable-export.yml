@@ -10,6 +10,9 @@ jobs:
   call-reusable-workflow:
     uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
     with:
-      docID: '_d1s_ZG0bmZ4'
+      docID: ${{ env.CODA_DOC_ID }}
     secrets:
       CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
+      
+env:
+  CODA_DOC_ID: '_d1s_ZG0bmZ4'

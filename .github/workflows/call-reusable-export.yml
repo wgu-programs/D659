@@ -11,10 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: List files in repository
-        run: ls -l ${{ github.workspace }}
+        uses: actions/checkout@v3
 
   call-reusable-workflow:
     needs: list-files

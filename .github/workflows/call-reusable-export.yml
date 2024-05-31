@@ -1,4 +1,3 @@
-# D659/.github/workflows/call-reusable-workflow.yml
 name: Call Reusable Export Coda Document to Markdown
 
 on:
@@ -8,8 +7,19 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
-    with:
-      docID: ${{ vars.CODA_DOC_ID }}
-    secrets:
-      CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+    
+      - name: Call Reusable Export Coda Document to Markdown
+        uses: wgu-programs/coda-export/.github/workflows/export-coda-markdown.yml@main
+        with:
+          docID: ${{ vars.CODA_DOC_ID }}
+        secrets:
+          CODA_API_KEY: ${{ secrets.CODA_API_KEY }}

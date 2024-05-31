@@ -12,14 +12,3 @@ jobs:
       docID: ${{ vars.CODA_DOC_ID }}
     secrets:
       CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
-    permissions:
-      contents: read
-
-    pre-steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
